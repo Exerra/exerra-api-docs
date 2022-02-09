@@ -1,0 +1,152 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "https://api.exerra.xyz"
+    }
+  ],
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "Exerra spam API",
+    "termsOfService": "",
+    "contact": {
+      "email": "exerra@exerra.xyz",
+      "name": "Exerra"
+    }
+  },
+  "tags": [
+    {
+      "name": "Scam"
+    }
+  ],
+  "paths": {
+    "/scam": {
+      "get": {
+        "summary": "Check a link",
+        "description": "Check if a link is a phishing attempt",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "description": "The link you are checking. Must be a valid HTTP(s) link"
+          }
+        ],
+        "operationId": "checkIfLinkPhishing",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/isDomainPhishing"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Scam"
+        ]
+      }
+    },
+    "/scam/stats": {
+      "get": {
+        "summary": "Get stats",
+        "description": "Get statistics about the API",
+        "parameters": [],
+        "operationId": "getStats",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/linkStats"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Scam"
+        ]
+      }
+    },
+    "/scam/all": {
+      "get": {
+        "summary": "Get all phishing domains",
+        "description": "Get all domains associated with phishing attempts<br />Warning: The response is very large, so it is preferred to use \"Check a link\"",
+        "parameters": [],
+        "operationId": "getAllPhishingDomains",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/allDomains"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Scam"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "allDomains": {
+        "items": {
+          "type": "array",
+          "properties": {
+            "domain": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "isDomainPhishing": {
+        "items": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "isScam": {
+              "type": "boolean"
+            },
+            "domain": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "linkStats": {
+        "items": {
+          "type": "object",
+          "properties": {
+            "links": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "requestBodies": {},
+    "securitySchemes": {},
+    "links": {},
+    "callbacks": {}
+  },
+  "security": []
+}
