@@ -5,7 +5,7 @@ import styles from "./HomepageFeatures.module.css";
 const FeatureList = [
   {
     title: "Easy to Use",
-    Svg: require("../../static/img/undraw_docusaurus_mountain.svg").default,
+    Svg: require("../../static/img/Group 14.svg").default,
     description: (
       <>
         The Exerra API was designed from the ground up to be simple, and free.
@@ -14,7 +14,7 @@ const FeatureList = [
   },
   {
     title: "Focus on What Matters",
-    Svg: require("../../static/img/undraw_docusaurus_tree.svg").default,
+    Svg: require("../../static/img/Frame 1@1x.svg").default,
     description: (
       <>
         Using a lot of complicated magic, the Exerra API let's you write as less code as possible. Instead of making these crazy scripts, everything is just one REST call away!
@@ -22,12 +22,11 @@ const FeatureList = [
     ),
   },
   {
-    title: "Powered by React",
-    Svg: require("../../static/img/undraw_docusaurus_react.svg").default,
+    title: "Powered by Node",
+    Svg: require("../../static/img/node2.svg").default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        The entire API is powered by NodeJS giving it the power needed for all of this.
       </>
     ),
   },

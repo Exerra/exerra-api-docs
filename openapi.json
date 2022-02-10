@@ -48,6 +48,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Client error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/isDomainPhishingError"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -81,7 +91,7 @@
     "/scam/all": {
       "get": {
         "summary": "Get all phishing domains",
-        "description": "Get all domains associated with phishing attempts<br />Warning: The response is very large, so it is preferred to use \"Check a link\"",
+        "description": "Get all domains associated with phishing attempts\\nWarning: The response is very large, so it is preferred to use \"Check a link\"",
         "parameters": [],
         "operationId": "getAllPhishingDomains",
         "responses": {
@@ -121,7 +131,7 @@
           "properties": {
             "status": {
               "type": "integer",
-              "format": "int64"
+              "format": "int16"
             },
             "isScam": {
               "type": "boolean"
@@ -139,6 +149,21 @@
             "links": {
               "type": "string"
             }
+          }
+        }
+      },
+      "isDomainPhishingError": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "format": "int16",
+            "type": "integer"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "humanReadable": {
+            "type": "string"
           }
         }
       }
