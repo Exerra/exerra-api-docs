@@ -12,7 +12,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "https://cdn.exerra.xyz/png/pfp.png",
   organizationName: "Exerra", // Usually your GitHub org/user name.
   projectName: "exerra-api-docs", // Usually your repo name.
 
@@ -47,7 +47,7 @@ const config = {
         title: "Exerra's API",
         logo: {
           alt: "My Site Logo",
-          src: "img/logo.svg",
+          src: "https://cdn.exerra.xyz/png/pfp.png",
         },
         items: [
           /*{
