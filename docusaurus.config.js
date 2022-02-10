@@ -8,13 +8,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Exerra's API",
   tagline: "Documentation for Exerra's API",
-  url: "https://your-docusaurus-test-site.com",
+  url: "https://docs.exerra.xyz",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "Exerra", // Usually your GitHub org/user name.
+  projectName: "exerra-api-docs", // Usually your repo name.
 
   presets: [
     [
