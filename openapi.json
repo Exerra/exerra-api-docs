@@ -91,7 +91,7 @@
     "/scam/all": {
       "get": {
         "summary": "Get all phishing domains",
-        "description": "Get all domains associated with phishing attempts\\nWarning: The response is very large, so it is preferred to use \"Check a link\"",
+        "description": "Get all domains associated with phishing attempts. The response is very large (≈9MB), so it is preferred to use \"Check a link\". **UPDATES AT 00:00 NETHERLANDS TIME.**",
         "parameters": [],
         "operationId": "getAllPhishingDomains",
         "responses": {
