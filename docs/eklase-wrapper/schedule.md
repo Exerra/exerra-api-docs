@@ -36,7 +36,7 @@ Example data
                 teacher: "Teacher who assigned the homework",
                 dates: {
                     assigned: "2022-04-12T12:06:00.000Z",
-                    edited: '2022-04-12T12:17:00.000Z"
+                    edited: "2022-04-12T12:17:00.000Z"
                 },
                 attachments: [
                     {
@@ -56,7 +56,7 @@ Example data
                 teacher: "Teacher who assigned the homework",
                 dates: {
                     assigned: "2022-02-12T12:06:00.000Z",
-                    edited: '2022-03-12T12:17:00.000Z"
+                    edited: "2022-03-12T12:17:00.000Z"
                 },
                 attachments: []
             }
