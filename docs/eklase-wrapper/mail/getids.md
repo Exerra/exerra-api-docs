@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Get IDs
 
-This function gets all IDs of your inbox. Useful for the [get mail](/idk) function.
+This function gets all IDs of your inbox. Useful for the [get mail](/docs/eklase-wrapper/mail/get) function.
 
 ## Usage
 
