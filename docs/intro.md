@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 # Intro
-These docs contain documentation for various Exerra API related packages.
+These docs contain documentation for various packages published by Exerra.
 
 You can find the full list here:
 

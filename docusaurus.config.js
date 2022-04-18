@@ -6,8 +6,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Exerra's API",
-  tagline: "Documentation for Exerra's API",
+  title: "Exerra docs",
+  tagline: "Documentation for various Exerra's projects",
   url: "https://docs.exerra.xyz",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -44,7 +44,7 @@ const config = {
     /** @type {import('docusaurus-preset-openapi').ThemeConfig} */
     ({
       navbar: {
-        title: "Exerra's API",
+        title: "Exerra docs",
         logo: {
           alt: "My Site Logo",
           src: "https://cdn.exerra.xyz/png/pfp.png",
