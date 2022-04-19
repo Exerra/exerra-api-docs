@@ -8,7 +8,7 @@ This function gets mail by id using IDs you can get with the [getIDs](/docs/ekla
 
 ## Usage
 
-You need to first get an array of IDs to fetch either with the [getIDs](/docs/eklase-wrapper/mail/getids.md) function or user input.
+You need to first get an array of IDs to fetch either with the [getIDs](/docs/eklase-wrapper/mail/getids) function or user input.
 
 :::tip
 If you want to get all mail, it would be easier to use the [getAll](/docs/eklase-wrapper/mail/getall) function
