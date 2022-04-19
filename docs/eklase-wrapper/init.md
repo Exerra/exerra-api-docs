@@ -10,17 +10,17 @@ To initialise you will use a constructor to feed your username and password, the
 
 1. Import the package
 ```js
-const EKlaseWrapper = require("TO-BE-DETERMINED")
+const EKlaseWrapper = require("eklase-wrapper")
 ```
 2. Create a const with the constructor and pass in a username & password
 ```js
-const EKlaseWrapper = require("TO-BE-DETERMINED")
+const EKlaseWrapper = require("eklase-wrapper")
 
 const wrapper = new EKlaseWrapper("USERNAME", "PASSWORD")
 ```
 3. Authenticate
 ```js
-const EKlaseWrapper = require("TO-BE-DETERMINED")
+const EKlaseWrapper = require("eklase-wrapper")
 
 const wrapper = new EKlaseWrapper("USERNAME", "PASSWORD")
 
