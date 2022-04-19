@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require("../../static/img/Group 14.svg").default,
     description: (
       <>
-        The Exerra API was designed from the ground up to be simple, and free.
+        Packages & APIs were designed from the ground up to be simple, and free.
       </>
     ),
   },
@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require("../../static/img/Frame 1@1x.svg").default,
     description: (
       <>
-        Using a lot of complicated magic, the Exerra API let's you write as less code as possible. Instead of making these crazy scripts, everything is just one REST call away!
+		Call a function or make a HTTP request and let the packages and/or APIs take care of everything else
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require("../../static/img/node2.svg").default,
     description: (
       <>
-        The entire API is powered by NodeJS giving it the power needed for all of this.
+        All of the packages & APIs are powered by NodeJS
       </>
     ),
   },
