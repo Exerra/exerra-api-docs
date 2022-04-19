@@ -15,5 +15,11 @@ Fetching IDs has never been simpler. Just run the function and `await` or `.then
 let ids = await wrapper.mail.getIDs()
 ```
 
-## What it's doing behind the scenes
-include http req codeblock here later
+## Result
+
+```js
+[
+	123456,
+    654321
+]
+```

@@ -13,3 +13,19 @@ Just call the function and `await` or `.then` it
 ```js
 let userInfo = await wrapper.user.getInfo()
 ```
+
+## Result
+
+```js
+[
+  {
+    identity: { name: 'Amelia', surname: 'Exerra' },
+    class: '69.b',
+    school: 'Your Mom University',
+    id: '123456',
+    classID: '0',
+    redirectURL: '/Family/Home',
+    renderNotifications: false
+  }
+]
+```

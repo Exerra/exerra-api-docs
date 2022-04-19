@@ -2,10 +2,13 @@
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Change password
 
 This function lets you change your password with a simple function.
-:::danger
+:::danger More work afterwards
 By changing the password you will have to update your code to reflect the change
 :::
 
@@ -26,6 +29,11 @@ let data = wrapper.user.settings.update.password(oldPassword, newPassword)
 
 ## Response
 
-If the password has been changed correctly, you will receive an empty array as the response (`[]`)
-
-If the password change didn't work, the response will have an object detailing it in the array
+<Tabs>
+  <TabItem value="success" label="Success" default>
+    The response will be an empty array
+  </TabItem>
+  <TabItem value="failure" label="Failure">
+    Response will contain an object detailing the failure
+  </TabItem>
+</Tabs>
