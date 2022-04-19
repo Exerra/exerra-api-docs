@@ -10,3 +10,4 @@ You can find the full list here:
 | Package      | Description                         |
 |--------------|-------------------------------------|
 | [phishing-api](/docs/phishing-api/intro) | Wrapper for the [Exerra phishing API](/api/check-a-link) |
+| [E-Klase wrapper](/docs/eklase-wrapper/intro) | Wrapper and scraper for [E-Klase](https://e-klase.lv) |
