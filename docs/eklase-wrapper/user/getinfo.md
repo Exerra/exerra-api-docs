@@ -18,14 +18,15 @@ let userInfo = await wrapper.user.getInfo()
 
 ```js
 [
-  {
-    identity: { name: 'Amelia', surname: 'Exerra' },
-    class: '69.b',
-    school: 'Your Mom University',
-    id: '123456',
-    classID: '0',
-    redirectURL: '/Family/Home',
-    renderNotifications: false
-  }
+	{
+		identity: {name: 'Amelia', surname: 'Exerra'},
+		class: '69.b',
+		school: 'Your Mom University',
+		id: '123456',
+		subscription: true,
+		classID: '0',
+		redirectURL: '/Family/Home',
+		renderNotifications: false
+	}
 ]
 ```
