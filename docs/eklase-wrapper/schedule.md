@@ -2,6 +2,9 @@
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Get schedule
 
 Gets a specified weeks (or this weeks if not specified) schedule. Data includes the name, subject, homework (value, dates, attachments) and score.
@@ -44,7 +47,9 @@ Example data
                         url: "https://my.e-klase.lv/Attachment/Get/2348dshj3v2f3"
                     }
                 ]
-            }
+            },
+            score: "10",
+            type: "lesson"
         }
     ],
     [ // Tuesday
@@ -59,8 +64,23 @@ Example data
                     edited: "2022-03-12T12:17:00.000Z"
                 },
                 attachments: []
-            }
+            },
+            score: "5",
+            type: "note"
         }
     ]
 ]
 ```
+
+### Difference between lesson and note
+
+<Tabs>
+  <TabItem value="lesson" label="Lesson" default>
+    Lessons are always there and in the diary are marked with a number (e.g "1.", "5.")
+  </TabItem>
+  <TabItem value="note" label="Note">
+    Notes are not always there and can be assigned at will by a teacher.<br />
+    They also have grey dots instead of numbers<br />
+    <img src={"https://cdn.exerra.xyz/png/eklase-wrapper/note.png"} />
+  </TabItem>
+</Tabs>
