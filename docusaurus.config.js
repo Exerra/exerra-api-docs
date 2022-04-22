@@ -54,7 +54,7 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Packages",
+            label: "Projects",
           },
           { to: "/api", label: "API", position: "left" },
           //{ to: "/blog", label: "Blog", position: "left" },

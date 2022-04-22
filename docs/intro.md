@@ -3,9 +3,9 @@ sidebar_position: 1
 ---
 
 # Intro
-These docs contain documentation for various packages published by Exerra.
+These docs contain documentation for various projects published by Exerra.
 
-You can find the full list here:
+## Packages
 
 | Package      | Description                         |
 |--------------|-------------------------------------|
