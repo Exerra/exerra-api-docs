@@ -1,0 +1,9 @@
+{
+  "label": "Discord bots",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "title": "Discord bots",
+    "description": "Documentation about Exerra's publicly available Discord bots"
+  }
+}

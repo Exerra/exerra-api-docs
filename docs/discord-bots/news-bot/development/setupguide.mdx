@@ -1,0 +1,45 @@
+# Setup instructions
+
+This page will instruct you on how to setup Newsify
+
+## Requirements
+To fully setup Newsify, you will need a Discord and Google account. If you do not have them already, go create them.
+
+## Discord token
+This is going to be super simple
+
+1. Go to [discord.com/developers/applications](https://discord.com/developers/applications) and **click on the button "New application"**
+![How to create new application](https://cdn.exerra.xyz/files/png/tutorials/discord/bot_token/create_application.png)
+
+2. Name your application<br/>
+![How to name application](https://cdn.exerra.xyz/files/png/tutorials/discord/bot_token/name_application.png)
+
+3. Now you have an application, but not a bot! To get a bot, **click on the "Bot" tab** on the sidebar, then **click on "Add bot"**. When it asks you if you *really* want to create a bot, just **say yes**!
+![How to create bot](https://cdn.exerra.xyz/files/png/tutorials/discord/bot_token/create_bot.png)
+
+4. To get the token, **click on "Reset Token" and then "Copy"** under the token while on the Bot tab. Now, be careful where you put it since **tokens are basically like usernames and passwords for bots**.
+![How to copy token](https://cdn.exerra.xyz/files/png/tutorials/discord/bot_token/copy_token.png)
+
+## Google Firebase
+
+1. Go to the [Google Firebase console](https://console.firebase.google.com/u/0/) and create a new project (make sure to turn off Google Analytics)
+2. Create a new Web App and name it `Discord bot`. When you reach the "Add Firebase SDK" section, copy the `firebaseConfig` const
+3. This is a bit of a hack, but go into the terminal and type `node`. There, execute this command and then copy what was logged
+	```js title="Node REPL Environment"
+	console.log(JSON.stringify(firebaseConf))
+	```
+4. Put it somewhere so you can paste it into .env later (field is `FIREBASE_CONF`)
+5. Navigate to "Cloud Firestore" (alternate name: "Firestore Database") and create a database in test mode (also, select the closest location for the server you will be deploying the bot on)
+6. Create a new collection in the database called `setting` (Auto-ID the document and add some random field)
+
+## Putting that all in .env
+So, clone/fork the repo and create an .env file.
+
+For each field, add the content to it in the .env file after the `=` (Remember, no spaces)
+
+| Field              | Content             |
+|--------------------|---------------------|
+| TOKEN              | Discord token       |
+| APPID              | Bots ID             |
+| GUILDID            | Test guild ID       |
+| FIREBASE_CONF      | Firebase config      |

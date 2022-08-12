@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="karen-bot-docs" />
+    <orderEntry type="module" module-name="news-bot" />
   </component>
 </module>

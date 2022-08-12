@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/exerra-api-docs.iml" filepath="$PROJECT_DIR$/.idea/exerra-api-docs.iml" />
       <module fileurl="file://$PROJECT_DIR$/../karen-bot-docs/.idea/karen-bot-docs.iml" filepath="$PROJECT_DIR$/../karen-bot-docs/.idea/karen-bot-docs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Discord/news-bot/.idea/news-bot.iml" filepath="$PROJECT_DIR$/../../../Discord/news-bot/.idea/news-bot.iml" />
     </modules>
   </component>
 </project>
