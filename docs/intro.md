@@ -5,12 +5,6 @@ sidebar_position: 1
 # Intro
 These docs contain documentation for various projects published by Exerra.
 
-## Bots
-
-| Bot | Website/Invite | Description |
-| --- |----------------| ----------- |
- | Karen Bot | [karen.exerra.xyz](https://karen.exerra.xyz) | Karen Bot is a multi-purpose bot ready to skill up and boost up your Discord server |
-
 ## Packages
 
 | Package                                         | Description                                              |
