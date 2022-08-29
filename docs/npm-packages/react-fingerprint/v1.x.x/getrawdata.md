@@ -4,12 +4,12 @@ sidebar_position: 3
 
 # Get raw data
 
-If you want to grab the raw data that is used to [create a fingerprint](/docs/react-fingerprint/getfingerprint), use this function
+If you want to grab the raw data that is used to [create a fingerprint](./getfingerprint.md), use this function
 
 :::warning
 This function uses browser APIs, so if you are using an SSR framework then find a way to run it only client-side
 
-Guides for select frameworks can be found [here](/docs/react-fingerprint/frameworks)
+Guides for select frameworks can be found [here](./frameworks.md)
 :::
 
 ## Usage
