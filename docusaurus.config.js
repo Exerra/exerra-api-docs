@@ -26,6 +26,8 @@ const config = {
           // Please change this to your repo.
           editUrl:
             "https://github.com/Exerra/exerra-api-docs/tree/master/",
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true
         },
         blog: {
           showReadingTime: true,
@@ -37,7 +39,7 @@ const config = {
           customCss: require.resolve("./src/css/custom.css"),
         },
       }),
-    ],
+    ]
   ],
 
   themeConfig:
