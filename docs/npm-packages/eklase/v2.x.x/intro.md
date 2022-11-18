@@ -4,18 +4,25 @@ sidebar_position: 1
 
 # Intro
 
+:::danger
+This version is not yet publically released
+:::
+
 `eklase` is a wrapper for the E-Klase API & scraper for the website.
 
-![](https://img.shields.io/npm/types/react-fingerprint)
+![](https://img.shields.io/npm/types/eklase)
 
-## Data points
-* Browser vendor, language, useragent, plugins, capabilities (contacts, pdf, cookies), mimetypes, canvas, doNotTrack
-* Device bars (menubar, toolbar etc), touchscreen, cpu, display sizes, ram, colour info
-* Timezone
-* Audio test
-* WebGL info
-* Fonts
-* Math calculations (some of them differ ever so slightly between browsers)
+## Features
+This wrapper has features such as:
+* Getting mail
+* Getting schedule (along with homework)
+* Changing password
+
+### Upcoming features
+* Getting user info
+* Getting user grades
+
+
 
 ## Typescript
 
