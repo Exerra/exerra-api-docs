@@ -4,10 +4,6 @@ sidebar_position: 1
 
 # Intro
 
-:::danger
-This version is not yet publically released
-:::
-
 `eklase` is a wrapper for the E-Klase API & scraper for the website.
 
 ![](https://img.shields.io/npm/types/eklase)
