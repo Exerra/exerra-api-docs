@@ -1,0 +1,47 @@
+---
+sidebar_position: 2
+---
+
+# Initialization
+To initialize `eklase` you need to use a constructor. Learn more about them [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
+
+## Steps
+1. Import the package
+```js
+const EKlase = require("eklase").default // CommonJS
+import EKlase from "eklase" // ES6 and TypeScript
+```
+2. Create a const with the construcotr and pass in a username & password.
+```js
+const EKlase = require("eklase").default // CommonJS
+import EKlase from "eklase" // ES6 and TypeScript
+
+let eklase = new EKlase("USERNAME", "PASSWORD")
+```
+Now you're done, hooray!
+
+## Authorisation flow
+
+The way E-Klase handles auth is when you send a POST request for login, E-Klase will put the auth cookie in the `Set-Cookie` header of the 302 page.
+
+An example of the POST request is:
+```http request
+POST /?v=15 HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Host: my.e-klase.lv
+Connection: close
+Content-Length: 46
+
+fake_pass=&UserName=USERNAME&Password=PASSWORD
+```
+<details>
+    <summary>Authorisation changes between v1 and v2</summary>
+    <div>
+		<h3>v1</h3>
+		<p>In v1 of <code>eklase</code> authorisation was handled on initialisation, and because of that the <code>keepAlive</code> optional parameter was added as the session expires after a while. Alongside that, if the user were to log into E-Klase themselves, the session would get deleted as E-Klase operates on a one-session-at-a-time basis.</p>
+		<br />
+		<br />
+		<h3>v2</h3>
+		<p>In v2 of <code>eklase</code> authorisation is handled by each function every time they get invoked, which ensures that old sessions and other logins are no longer a problem. With this system the function latency will increase a bit, but the added benefits well outweigh the benefits.</p>
+    </div>
+</details>
