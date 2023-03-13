@@ -2,13 +2,13 @@
   "openapi": "3.0.0",
   "servers": [
     {
-      "url": "https://api.exerra.xyz"
+      "url": "https://api.exerra.xyz/v2/"
     }
   ],
   "info": {
     "description": "",
     "version": "1.0.0",
-    "title": "Exerra spam API",
+    "title": "Exerra API",
     "termsOfService": "",
     "contact": {
       "email": "exerra@exerra.xyz",
@@ -17,10 +17,10 @@
   },
   "tags": [
     {
-      "name": "Scam"
+      "name": "Phishing API"
     },
     {
-      "name": "Profile",
+      "name": "Karen Bot API",
       "description": "Endpoints for the Karen Bot profile API"
     }
   ],
@@ -28,7 +28,7 @@
     "/scam": {
       "get": {
         "summary": "Check a link",
-        "description": "Check if a link is a phishing attempt",
+        "description": "Check if a link is a known phishing attempt",
         "parameters": [
           {
             "name": "url",
@@ -38,7 +38,7 @@
               "type": "string",
               "default": ""
             },
-            "description": "The link you are checking. Must be a valid HTTP(s) link"
+            "description": "A valid HTTP(s) URL that you want to check"
           }
         ],
         "operationId": "checkIfLinkPhishing",
@@ -52,27 +52,17 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Client error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/isDomainPhishingError"
-                }
-              }
-            }
           }
         },
         "tags": [
-          "Scam"
+          "Phishing API"
         ]
       }
     },
     "/scam/stats": {
       "get": {
         "summary": "Get stats",
-        "description": "Get statistics about the API",
+        "description": "Get statistics about the Exerra Phishing API",
         "parameters": [],
         "operationId": "getStats",
         "responses": {
@@ -88,7 +78,7 @@
           }
         },
         "tags": [
-          "Scam"
+          "Phishing API"
         ]
       }
     },
@@ -112,7 +102,7 @@
         },
         "security": [],
         "tags": [
-          "Scam"
+          "Phishing API"
         ]
       }
     },
@@ -143,16 +133,6 @@
         ],
         "operationId": "getKarenBotProfile",
         "responses": {
-          "200": {
-            "description": "Profile (with true fetchProfile)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/karenGetProfile200fetchUser"
-                }
-              }
-            }
-          },
           "default": {
             "description": "Profile (with false or undefined fetchProfile)",
             "content": {
@@ -162,10 +142,20 @@
                 }
               }
             }
+          },
+          "200 ?fetchUser=true": {
+            "description": "Profile (with true fetchProfile)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/karenGetProfile200fetchUser"
+                }
+              }
+            }
           }
         },
         "tags": [
-          "Profile"
+          "Karen Bot API"
         ]
       }
     }
@@ -173,38 +163,64 @@
   "components": {
     "schemas": {
       "allDomains": {
-        "items": {
-          "type": "array",
-          "properties": {
-            "domain": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "format": "int16",
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
               "type": "string"
             }
           }
         }
       },
       "isDomainPhishing": {
-        "items": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "integer",
-              "format": "int16"
-            },
-            "isScam": {
-              "type": "boolean"
-            },
-            "domain": {
-              "type": "string"
+        "type": "object",
+        "properties": {
+          "status": {
+            "format": "int16",
+            "type": "integer"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "isScam": {
+                "type": "boolean"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "detection": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": ["domain", "link"]
+                  }
+                }
+              }
             }
           }
         }
       },
       "linkStats": {
-        "items": {
-          "type": "object",
-          "properties": {
-            "links": {
-              "type": "string"
+        "type": "object",
+        "properties": {
+          "status": {
+            "format": "int16",
+            "type": "integer"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "domains": {
+                "type": "number"
+              },
+              "links": {
+                "type": "number"
+              }
             }
           }
         }
@@ -227,231 +243,249 @@
       "karenGetProfile200": {
         "type": "object",
         "properties": {
-          "profile": {
+          "status": {
+            "format": "int16",
+            "type": "integer"
+          },
+          "data": {
             "type": "object",
             "properties": {
-              "description": {
-                "type": "string"
-              },
-              "gender": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "rank": {
-                "type": "string"
-              },
-              "languages": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "website": {
-                "type": "string"
-              },
-              "twitter": {
-                "type": "string"
-              },
-              "file": {
+              "profile": {
                 "type": "object",
                 "properties": {
-                  "iso8601": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "rank": {
+                    "type": "string"
+                  },
+                  "languages": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "website": {
+                    "type": "string"
+                  },
+                  "twitter": {
+                    "type": "string"
+                  },
+                  "file": {
                     "type": "object",
                     "properties": {
-                      "lastModified": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2022-02-13T22:44:36.414Z"
+                      "iso8601": {
+                        "type": "object",
+                        "properties": {
+                          "lastModified": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2022-02-13T22:44:36.414Z"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2022-02-13T22:44:36.414Z"
+                          }
+                        }
                       },
-                      "createdAt": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2022-02-13T22:44:36.414Z"
+                      "ms": {
+                        "type": "object",
+                        "properties": {
+                          "lastModified": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2022-02-13T22:44:36.414Z"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2022-02-13T22:44:36.414Z"
+                          }
+                        }
                       }
                     }
                   },
-                  "ms": {
-                    "type": "object",
-                    "properties": {
-                      "lastModified": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2022-02-13T22:44:36.414Z"
-                      },
-                      "createdAt": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2022-02-13T22:44:36.414Z"
-                      }
-                    }
+                  "pronouns": {
+                    "type": "string"
                   }
                 }
               },
-              "pronouns": {
+              "id": {
                 "type": "string"
               }
             }
-          },
-          "id": {
-            "type": "string"
           }
         }
       },
       "karenGetProfile200fetchUser": {
         "type": "object",
         "properties": {
-          "profile": {
+          "status": {
+            "format": "int16",
+            "type": "integer"
+          },
+          "data": {
             "type": "object",
             "properties": {
-              "description": {
-                "type": "string"
-              },
-              "gender": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "rank": {
-                "type": "string"
-              },
-              "languages": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "website": {
-                "type": "string"
-              },
-              "twitter": {
-                "type": "string"
-              },
-              "file": {
+              "profile": {
                 "type": "object",
                 "properties": {
-                  "iso8601": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "rank": {
+                    "type": "string"
+                  },
+                  "languages": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "website": {
+                    "type": "string"
+                  },
+                  "twitter": {
+                    "type": "string"
+                  },
+                  "file": {
                     "type": "object",
                     "properties": {
-                      "lastModified": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2022-02-13T22:44:36.414Z"
+                      "iso8601": {
+                        "type": "object",
+                        "properties": {
+                          "lastModified": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2022-02-13T22:44:36.414Z"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2022-02-13T22:44:36.414Z"
+                          }
+                        }
                       },
-                      "createdAt": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2022-02-13T22:44:36.414Z"
+                      "ms": {
+                        "type": "object",
+                        "properties": {
+                          "lastModified": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2022-02-13T22:44:36.414Z"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2022-02-13T22:44:36.414Z"
+                          }
+                        }
                       }
                     }
                   },
-                  "ms": {
-                    "type": "object",
-                    "properties": {
-                      "lastModified": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2022-02-13T22:44:36.414Z"
-                      },
-                      "createdAt": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2022-02-13T22:44:36.414Z"
-                      }
-                    }
+                  "pronouns": {
+                    "type": "string"
                   }
                 }
               },
-              "pronouns": {
+              "id": {
                 "type": "string"
-              }
-            }
-          },
-          "id": {
-            "type": "string"
-          },
-          "username": {
-            "type": "string"
-          },
-          "discriminator": {
-            "type": "string"
-          },
-          "publicFlags": {
-            "type": "integer",
-            "format": "int16"
-          },
-          "badges": {
-            "description": "Decoded flags",
-            "type": "array",
-            "properties": {
+              },
+              "username": {
+                "type": "string"
+              },
+              "discriminator": {
+                "type": "string"
+              },
+              "publicFlags": {
+                "type": "integer",
+                "format": "int16"
+              },
               "badges": {
-                "type": "string"
-              }
-            }
-          },
-          "avatar": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "Avatar ID"
-              },
-              "url": {
-                "description": "Avatar URLs",
-                "type": "object",
+                "description": "Decoded flags",
+                "type": "array",
                 "properties": {
-                  "png": {
-                    "type": "string"
-                  },
-                  "jpg": {
-                    "type": "string"
-                  },
-                  "webp": {
-                    "type": "string"
-                  },
-                  "gif": {
+                  "badges": {
                     "type": "string"
                   }
                 }
-              }
-            }
-          },
-          "banner": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "Banner ID"
               },
-              "color": {
-                "type": "string",
-                "description": "Banner colour (HEX)"
-              },
-              "url": {
-                "description": "Banner URLs",
+              "avatar": {
                 "type": "object",
                 "properties": {
-                  "png": {
-                    "type": "string"
+                  "id": {
+                    "type": "string",
+                    "description": "Avatar ID"
                   },
-                  "jpg": {
-                    "type": "string"
-                  },
-                  "webp": {
-                    "type": "string"
-                  },
-                  "gif": {
-                    "type": "string"
+                  "url": {
+                    "description": "Avatar URLs",
+                    "type": "object",
+                    "properties": {
+                      "png": {
+                        "type": "string"
+                      },
+                      "jpg": {
+                        "type": "string"
+                      },
+                      "webp": {
+                        "type": "string"
+                      },
+                      "gif": {
+                        "type": "string"
+                      }
+                    }
                   }
                 }
+              },
+              "banner": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "Banner ID"
+                  },
+                  "color": {
+                    "type": "string",
+                    "description": "Banner colour (HEX)"
+                  },
+                  "url": {
+                    "description": "Banner URLs",
+                    "type": "object",
+                    "properties": {
+                      "png": {
+                        "type": "string"
+                      },
+                      "jpg": {
+                        "type": "string"
+                      },
+                      "webp": {
+                        "type": "string"
+                      },
+                      "gif": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "accentColor": {
+                "type": "string",
+                "description": "Banner colour (android)"
               }
             }
-          },
-          "accentColor": {
-            "type": "string",
-            "description": "Banner colour (android)"
           }
         }
       }

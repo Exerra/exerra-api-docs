@@ -48,7 +48,7 @@ const config = {
       navbar: {
         title: "Exerra docs",
         logo: {
-          alt: "My Site Logo",
+          alt: "Exerra",
           src: "https://cdn.exerra.xyz/png/pfp.png",
         },
         items: [
@@ -84,6 +84,10 @@ const config = {
               {
                 label: "Exerra's website",
                 href: "https://exerra.xyz",
+              },
+              {
+                label: "Exerra Shortener",
+                href: "https://s.exerra.xyz",
               },
               {
                 label: "Exerra's mods",
