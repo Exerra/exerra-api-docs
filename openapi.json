@@ -127,8 +127,16 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "If toggled, fetches the Discord user of that ID (if profile is in the database)",
-            "format": ""
+            "description": "If toggled, fetches the Discord user of that ID (if profile is in the database)"
+          },
+          {
+            "name": "fetchLanyard",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "If toggled, fetches the data for that ID from the Lanyard API (lanyard.rest)"
           }
         ],
         "operationId": "getKarenBotProfile",
