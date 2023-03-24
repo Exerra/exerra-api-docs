@@ -130,13 +130,17 @@
             "description": "If toggled, fetches the Discord user of that ID (if profile is in the database)"
           },
           {
-            "name": "fetchLanyard",
+            "name": "externalService",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["lanyard"]
+              }
             },
-            "description": "If toggled, fetches the data for that ID from the Lanyard API (lanyard.rest)"
+            "description": "If toggled, fetches the data for that ID from an external API. Currently supported: Lanyard (lanyard.rest)"
           }
         ],
         "operationId": "getKarenBotProfile",
