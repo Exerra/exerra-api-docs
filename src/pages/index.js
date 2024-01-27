@@ -34,9 +34,9 @@ export default function Home() {
       description="Documentation for Exerra's API and related packages"
     >
       <HomepageHeader />
-      <main>
+      {/* <main>
         <HomepageFeatures />
-      </main>
+      </main> */}
     </Layout>
   );
 }

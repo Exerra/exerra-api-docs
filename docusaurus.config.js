@@ -93,6 +93,10 @@ const config = {
                 label: "Exerra's mods",
                 href: "https://mods.exerra.xyz",
               },
+              {
+                label: "GetSummary.tech",
+                href: "https://getsummary.tech",
+              },
             ],
           },
           {
@@ -100,7 +104,7 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://guild.exerra.xyz",
+                href: "https://s.exerra.xyz/discord",
               },
               {
                 label: "Twitter",
@@ -113,7 +117,7 @@ const config = {
             ],
           }
         ],
-        copyright: `Copyright © whatever year it is rn by Exerra`,
+        copyright: `Copyright © 2024 by Exerra`,
       },
       prism: {
         theme: lightCodeTheme,
