@@ -22,7 +22,7 @@ As this version is pre-release it does not have all of the intended features. Th
 - [x] [Select a folder](folders/select)
 - [x] [Fetch emails](emails/fetch)
 - [x] [Check](check)
-- [ ] Search emails
+- [x] [Search emails](emails/search)
 - [ ] Expunge email
 - [ ] Copy email
 - [ ] Close folder
