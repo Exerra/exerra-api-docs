@@ -27,7 +27,7 @@ As this version is pre-release it does not have all of the intended features. Th
 - [x] [Get folders](./folders/get)
 - [x] [Select a folder](./folders/select)
 - [x] [Fetch emails](./emails/fetch)
-- [x] [Check](./check)
+- [x] [Check](./misc/check)
 - [x] [Search emails](./emails/search)
 - [ ] Expunge email
 - [ ] Copy email
