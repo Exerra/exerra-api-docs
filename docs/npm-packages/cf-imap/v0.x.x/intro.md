@@ -12,6 +12,12 @@ This version is pre-release (v0.x.x), so breaking changes may happen. If such ch
 
 This package was made because all of the other IMAP libraries are built for NodeJS, and Cloudflare Workers even with node compatibility turned does not support them.
 
+## Provider support
+
+Most providers stick to the two IMAP specifications (`RFC 3501` and `RFC 9051`), however some (notably Gmail with `gimap`) have their own experimental implementations. This package is tested with a few providers that abide by the spec and, of course, Gmail.
+
+However, if the provider you are using isn't tested, uses their own implementation of IMAP and `cf-imap` is throwing errors on things that *should work* (see: [Errors](./error_handling)), please [raise an issue on GitHub](https://github.com/Exerra/cf-imap/issues) so I can promptly fix it.
+
 ## Features
 
 As this version is pre-release it does not have all of the intended features. This section will keep track of the existing and planned features, however [Github Projects](https://github.com/users/Exerra/projects/3) will generally be more accurate (titles are in English, however everything else might be in Latvian).
