@@ -18,9 +18,10 @@ This function takes in props with the following type:
 
 ```ts
 export type FetchEmailsProps = {
-    folder: string,
-    byteLimit?: number, // Not recommended as it may break parsing.
     limit: [number, number],
+    folder: string,
+    fetchBody: boolean, // Introduced in v0.0.9
+    byteLimit?: number, // Not recommended as it may break parsing.
     peek?: boolean // If true (when undefined defaults to true), fetching the email won't set the "\Seen" flag
 }
 ```
@@ -28,7 +29,8 @@ export type FetchEmailsProps = {
 ```ts
 let emails = await imap.fetchEmails({
     limit: [35, 35],
-    folder: "INBOX"
+    folder: "INBOX",
+    fetchBody: true
 })
 ```
 
@@ -45,7 +47,7 @@ export type Email = {
     contentType: string,
     date: Date,
     raw: string,
-    body: string
+    body: string // If fetchBody is false, it just returns an empty string
 }
 ```
 
@@ -65,7 +67,7 @@ And the response is:
       'Date: Mon, 1 Jan 2024 12:00:00 -0800\n' +
       'Message-ID: <id@mail.example.com>\n' +
       'Subject: Very important email\n' +
-      'To: user@exerra.xyz\n' +
+      'To: user@example.com\n' +
       'Content-Type: text/plain; charset="UTF-8"\n' +
       '\n' +
       ' BODY[TEXT] {55}\n' +
