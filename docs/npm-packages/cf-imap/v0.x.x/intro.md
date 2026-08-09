@@ -14,7 +14,11 @@ This package was made because all of the other IMAP libraries are built for Node
 
 ## Provider support
 
-Most providers stick to the two IMAP specifications (`RFC 3501` and `RFC 9051`), however some (notably Gmail with `gimap`) have their own experimental implementations. This package is tested with a few providers that abide by the spec and, of course, Gmail.
+Most providers stick to the two IMAP specifications (`RFC 3501` and `RFC 9051`), however some have their own experimental implementations.
+
+:::note
+**Gmail and Outlook are currently not supported.** Both providers now require OAuth2 authentication, while `cf-imap` currently only supports username & password (`LOGIN`) authentication. Because of that they are no longer supported for now — however, there are plans to add OAuth2 (`XOAUTH2`) support in the future.
+:::
 
 However, if the provider you are using isn't tested, uses their own implementation of IMAP and `cf-imap` is throwing errors on things that *should work* (see: [Errors](./error_handling)), please [raise an issue on GitHub](https://github.com/Exerra/cf-imap/issues) so I can promptly fix it.
 
